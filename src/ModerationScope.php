@@ -400,6 +400,10 @@ class ModerationScope implements Scope
      */
     protected function isModerationConstraint(array $where, $column)
     {
-        return $where['column'] == $column;
+		if(isset($where['column'])){
+			return $where['column'] == $column;
+		}
+
+		return false;
     }
 }
