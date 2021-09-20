@@ -46,7 +46,9 @@ class ModerationScope implements Scope
         if ($strict) {
             $builder->where($model->getQualifiedStatusColumn(), '=', Status::APPROVED);
         } else {
-            $builder->where($model->getQualifiedStatusColumn(), '!=', Status::REJECTED);
+            //RB - 2021-09-20
+            //When strict mode is off, include REJECTED
+            //$builder->where($model->getQualifiedStatusColumn(), '!=', Status::REJECTED);
         }
 
         $this->extend($builder);
